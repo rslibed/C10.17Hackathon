@@ -19,9 +19,7 @@ function pullFromCarma() {
         success: successfulCarmaPull,
         error:  errorPull
     });
-
 }
-
 function successfulCarmaPull(data) {
     console.log(data);
     var dataCarma = data;
@@ -203,13 +201,10 @@ function getDataByLocation(lat, lon){
 }
 // News API Functionality
 
-<<<<<<< HEAD
 function initializeApp () {
     $(".newsData").click(getNewsData);
     // getNewsData();
 }
-=======
->>>>>>> f09e740720ed0894f7290bc57aaa86e9b7f13ced
 
 function getNewsData () {
     var nationalGeoAPIajaxOptions = {
@@ -248,8 +243,8 @@ function getNewsData () {
 }
 
 function displayNewsData (data) {
-    if ($(".inputBox").val() === "") {
-        $(".inputBox").attr({
+    if ($("#location-input").val() === "") {
+        $("#location-input").attr({
             placeholder: "Please enter keywords to search."
         });
         return;
@@ -280,7 +275,7 @@ function displayNewsData (data) {
     }
 }
 function formatTextArea () {
-    var enteredText = $(".inputBox").val().split(" ").join("+");
+    var enteredText = $("#location-input").val().split(" ").join("+");
     return enteredText;
 }
 
