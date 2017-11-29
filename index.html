@@ -10,41 +10,45 @@
     <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="leftCol col-md-3 col-lg-3">
-            <div class="title">GlassPlot</div>
-            <div class="news">news</div>
-        </div>
-        <div class="rightCol col-md-9 col-lg-9">
-            <div class="searchBox">
-                <input type="text" class="inputBox">
+<div class="container">
+    <div class="leftCol col-md-3 col-lg-3">
+        <div class="title">GlassPlot</div>
+        <div class="news">
+            <div class="row m-auto col-sm-12 text-center newsTitle">
+                <h1>Recent News</h1>
             </div>
-            <div class="map">map</div>
-            <div class="btnCol col-mg-12 col-lg-12">
-                <button class="air">AIR</button>
-                <button class="co2">CO2</button>
-            </div>
-            <div class="dataChart">chart</div>
-            <div class="data">data</div>
-        </div>
-        
-
-    </div>
-    <button onclick="pullFromCarma()">pull data</button>
-    <button onclick="pullFromPlanetOs()">planetOS</button>
-
-    <!-- News Inputs -->
-    <!--<div class="row searchFormContainer">-->
-        <!--<div class="col-lg-6">-->
+            <!--<div class="row searchFormContainer">-->
+            <!--<div class="col-lg-6">-->
             <!--<div class="input-group">-->
-                <!--<input type="text" class="form-control searchNews" placeholder="Enter a location...">-->
-                <!--<span class="input-group-btn">-->
-        <!--<button class="btn btn-default searchButton" type="button">Go!</button>-->
-      <!--</span>-->
+            <!--<input type="text" class="form-control searchNews" placeholder="Enter a location...">-->
+            <!--<span class="input-group-btn">-->
+            <!--<button class="btn btn-default searchButton" type="button">Go!</button>-->
+            <!--</span>-->
             <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<div class="newsListDisplay col-lg-6">-->
-    <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <div class="newsListDisplay col-lg-12 m-auto">
+            </div>
+        </div>
+    </div>
+    <div class="rightCol col-md-9 col-lg-9">
+        <div class="searchBox">
+            <input type="text" class="inputBox">
+        </div>
+        <div class="map">map</div>
+        <div class="btnCol col-mg-12 col-lg-12">
+            <button class="air">AIR</button>
+            <button class="co2">CO2</button>
+        </div>
+        <div class="dataChart">chart</div>
+        <div class="data">data</div>
+    </div>
+
+
+</div>
+<button onclick="pullFromCarma()">pull data</button>
+<button onclick="pullFromPlanetOs()">planetOS</button>
+<button class="newsData">News Data</button>
+
 </body>
 </html>
