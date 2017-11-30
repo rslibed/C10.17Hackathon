@@ -17,8 +17,10 @@ function initializeApp() {
 
 }
 
-// *********************** open weather api *************************
+//*********************** open weather api *************************
+/*
 
+ */
 
 function handleWeatherInfo() {
     $.ajax({
@@ -35,25 +37,36 @@ function handleWeatherInfo() {
         success: function (data) {
             console.log(data);
             var dataMain = data['main'];
-            var cityName = geo_info_object.city;
-            var temperature = dataMain['temp'];
-            var humidity = dataMain['humidity'];
-            var minTemp = dataMain['temp_min'];
-            var maxTemp = dataMain['temp_max'];
-            $('#weatherCity').empty();
-            $('#weatherCurrent').empty();
-            $('#weatherTemp').empty();
-            $('#weatherHumidity').empty();
-            $('#weatherCity').append('City: ' + cityName);
-            $('#weatherCurrent').append('Current Temperature: ' + temperature + '&deg;');
-            $('#weatherTemp').append('Temperature: ' + minTemp + '&deg;'+ '- ' + maxTemp + '&deg;');
-            $('#weatherHumidity').append('Humidity: ' + humidity + '%');
+            // var cityName = geo_info_object.city;
+            geo_info_object.temperature = dataMain['temp'];
+            geo_info_object.humidity = dataMain['humidity'];
+            geo_info_object.minTemp = dataMain['temp_min'];
+            geo_info_object.maxTemp = dataMain['temp_max'];
+            weatherOutput();
         },
         error: function () {
             $('.data').text('Sorry, your temperature info is missing!')
         }
     })
 }
+
+function weatherOutput() {
+    $('#weatherCity').empty();
+    $('#weatherCurrent').empty();
+    $('#weatherTemp').empty();
+    $('#weatherHumidity').empty();
+    $('#weatherCity').append('City: ' + geo_info_object.city);
+    $('#weatherCurrent').append('Current Temperature: ' + geo_info_object.temperature + '&deg;');
+    $('#weatherTemp').append('Temperature: ' + geo_info_object.minTemp + '&deg;'+ '- ' + geo_info_object.maxTemp + '&deg;');
+    $('#weatherHumidity').append('Humidity: ' + geo_info_object.humidity + '%');
+}
+
+
+
+
+
+
+
 
 
 /*
@@ -145,8 +158,7 @@ function callApi() {
         getNewsData();
         handleWeatherInfo();
         pullFromCarma();
-        getStationsByKeyword(geo_info_object.state);
-
+        getAqiData(geo_info_object.state);
 }
 
 function initMap(lat, lng) {
@@ -162,12 +174,13 @@ function initMap(lat, lng) {
     });
 }
 
+
 // **********************CESKA'S CODE -- AIR POLLUTION API -- START**********************
 
 /*
 *   url: http://api.waqi.info/search/?token=TOKEN&keyword=KEYWORD    
 *   key/token: 1af10262d0228050ee6334c5273af092b068ca53
-*   Create a function called getStationsByKeyword 
+*   Create a function called getAqiData 
 *   Takes in 1 parameter
 *   @param keyword - STATE??
 *   @callback determineAqiLevel - takes in aqi as a param, see function for further info
@@ -175,7 +188,7 @@ function initMap(lat, lng) {
 *
 */
 
-function getStationsByKeyword(keyword) {
+function getAqiData(keyword) {
     console.log('*************************GET STATIONS BY KEYWORD FUNCTION IS BEING CALLED*************************');
     $.ajax({
         data: {
@@ -264,7 +277,7 @@ function determineAqiLevel(aqi, keyword) {
     } else {
         console.log('*****NO AQI AVAILABLE*****');
     }
-    console.log('*****' + keyword);
+    console.log('*****State: ' + keyword);
     console.log('*****Air Quality Level: ', aqi);
     console.log('*****Air Pollution Level: ' + airPollutionLvl);
     console.log('*****Health Implications: ' + healthImplications);
