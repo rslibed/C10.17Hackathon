@@ -493,7 +493,7 @@ function formatTextArea() {
 function drawChart() {
 
     var data = google.visualization.arrayToDataTable([
-        ['Element', 'Presentage'],
+        ['Element', 'Percentage'],
         ['Fossil',geo_info_object.fossil],
         ['Hydro',geo_info_object.hydro],
         ['Nuclear',geo_info_object.nuclear],
