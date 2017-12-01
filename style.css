@@ -147,16 +147,7 @@ h1 {
     width: 100%;
 }
 
-.pieChartPage{
-    border: 1px solid red;
-    height: 100%;
-    width: 100%;
-}
-#pieChart{
-    border: 1px solid black;
-    height:100%;
-    width:100%;
-}
+
 .newsListDisplay {
     background-color: #272727;
     width: 95%;
