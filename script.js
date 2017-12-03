@@ -486,7 +486,7 @@ function displayNewsData(data) {
         newsLinkTag = $("<a>", {
             text: newsInfoArray[newsInfoArrayIndex].newsTitle
         }).addClass("newsLink");
-        newsLinkTag.click(displayModal);
+        newsLinkTag.click(displayModal.bind(null, newsInfoArray[newsInfoArrayIndex]));
         newsModalLink = $("<a>", {
             text: "here",
             href: newsInfoArray[newsInfoArrayIndex].newsLink
@@ -506,7 +506,7 @@ function displayNewsData(data) {
         console.log("Here is a news item: ", newsItems);
     }
     // Function to display detailed info of article on modal
-    function displayModal () {
+    function displayModal (newsArticle) {
             // Declare variable to store news article link
             var fullArticleLink;
             // Created function to loop through array and pull up the correct info according what was clicked. Used closure to get snapshot of what is being clicked to populate modal with correct data
